@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lecture 1 - Introduction to Fluid Mechanics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Reveal.js styles -->
+    <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/white.css" id="theme">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown="slides.md" data-separator="^---" data-separator-vertical="^--"
+                data-separator-notes="^Note:" data-charset="utf-8">
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js core -->
+    <script src="../../node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/math/math.js"></script>
+
+    <!-- Font Awesome for toolbar icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Controls -->
+    <script src="../../plugins/customcontrols/plugin.js"></script>
+    <link rel="stylesheet" href="../../plugins/customcontrols/style.css">
+
+    <!-- Chalkboard Plugin -->
+    <script src="../../plugins/chalkboard/plugin.js"></script>
+    <link rel="stylesheet" href="../../plugins/chalkboard/style.css">
+
+    <!-- Custom styles (load last) -->
+    <link rel="stylesheet" href="../../css/custom.css">
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealMarkdown, RevealHighlight, RevealChalkboard, RevealCustomControls, RevealNotes, RevealMath.KaTeX],
+            chalkboard: {
+                boardmarkerWidth: 2,
+                storage: "mme3303-chalk-v1",
+                src: null,
+                readOnly: undefined,
+                transition: 800,
+                theme: "whiteboard",
+                background: ['rgba(127,127,127,.1)', '../../plugins/chalkboard/img/whiteboard.png'],
+                grid: { color: 'rgb(220,220,220,0.5)', distance: 100, width: .5 },
+                eraser: { src: '../../plugins/chalkboard/img/sponge.png', radius: 20 },
+                boardmarkers: [
+                    { color: 'rgba(0,0,0,1)',           cursor: '../../plugins/chalkboard/img/boardmarker-black.png'  },
+                    { color: 'rgba(30,144,255,1)',      cursor: '../../plugins/chalkboard/img/boardmarker-blue.png'   },
+                    { color: 'rgba(220,20,60,1)',       cursor: '../../plugins/chalkboard/img/boardmarker-red.png'    },
+                    { color: 'rgba(50,205,50,1)',       cursor: '../../plugins/chalkboard/img/boardmarker-green.png'  },
+                    { color: 'rgba(255,140,0,1)',       cursor: '../../plugins/chalkboard/img/boardmarker-orange.png' },
+                    { color: 'rgba(128,0,128,1)',       cursor: '../../plugins/chalkboard/img/boardmarker-purple.png' },
+                    { color: 'rgba(255,220,0,1)',       cursor: '../../plugins/chalkboard/img/boardmarker-yellow.png' }
+                ],
+            },
+            customcontrols: {
+                controls: [
+                    {
+                        icon: '<i class="fa fa-pen-square"></i>',
+                        title: 'Toggle chalkboard (B)',
+                        action: 'RevealChalkboard.toggleChalkboard();'
+                    },
+                    {
+                        icon: '<i class="fa fa-pen"></i>',
+                        title: 'Toggle notes canvas (C)',
+                        action: 'RevealChalkboard.toggleNotesCanvas();'
+                    }
+                ],
+            },
+        });
+    </script>
+
+    <!-- Role-based class assignment -->
+    <script>
+        (function () {
+            const role = (new URLSearchParams(location.search).get('role') || '').trim();
+            if (role) document.body.classList.add(role);
+
+            function stripSlides() {
+                if (role !== 'instructor') {
+                document.querySelectorAll('.reveal .slides section.instructor-only').forEach(s => s.remove());
+                } else {
+                document.querySelectorAll('.reveal .slides section.student-only').forEach(s => s.remove());
+                }
+                if (window.Reveal && Reveal.sync) Reveal.sync();
+            }
+
+            Reveal.on('ready', stripSlides);
+        })();
+    </script>                           
+
+    <script>
+        Reveal.on('slidechanged', event => {
+            const current = Reveal.getIndices(event.currentSlide);
+            const total = Reveal.getTotalSlides();
+
+            const slideNum = current.v > 0
+                ? `${current.h + 1}.${current.v + 1}`
+                : `${current.h + 1}`;
+            document.getElementById('slide-number').textContent = `${slideNum} / ${total}`;
+            document.getElementById('slide-number').textContent = slideNum;
+        });
+
+        // Set initial slide number on load
+        Reveal.on('ready', event => {
+            Reveal.dispatchEvent({ type: 'slidechanged', currentSlide: Reveal.getCurrentSlide() });
+        });
+    </script>
+
+    <!-- Footer placed outside .reveal so it stays fixed -->
+    <div class="footer">
+        <img src="../../img/Engineer_Horiz_Rev.png" alt="Western Engineering">
+        <div class="footer-title">MME 3303A - Lecture 1</div>
+        <div class="footer-right">
+            <span id="slide-number"></span>
+        </div>
+    </div>
+
+</body>
+
+</html>
