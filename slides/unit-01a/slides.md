@@ -27,7 +27,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 
 - What is the difference between a fluid and a solid?
 
-<div class="annotation-space"></div>
+<div class="annotation-space annotation-h-50"></div>
 
 --
 <!-- .slide: class="instructor-only" -->
@@ -36,7 +36,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 - What is the difference between a fluid and a solid?
 
 > - Solids have a fixed shape; fluids take the shape of their container.
-> - Fluids deform continuously under the applicaiton of a shear stress.
+> - Fluids deform continuously under the application of a shear stress.
 > - Both liquids and gases are fluids.
 <!-- .element: class="annotation-space" -->
 
@@ -54,7 +54,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 
 - What are some examples where fluid flow is important?
 
-<div class="annotation-space"></div>
+<div class="annotation-space annotation-h-50"></div>
 
 
 --
@@ -76,7 +76,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 
 - What are the two largest fluid reservoirs on Earth?
 
-<div class="annotation-space"></div>
+<div class="annotation-space annotation-h-50"></div>
 
 --
 <!-- .slide: class="instructor-only" -->
@@ -103,7 +103,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 <!-- .slide: class="student-only" -->
 ## Differential Analysis
 
-<div class="annotation-space"></div>
+<div class="annotation-space annotation-h-60"></div>
 
 --
 <!-- .slide: class="instructor-only" -->
@@ -119,6 +119,7 @@ Instructor: C.T. DeGroot, PhD, PEng
 ## Dimensional Analysis
 
 ![Moody Diagram.](img/Moody_EN.svg)
+<!-- .element: class="img-50vh" -->
 
 $$ \Delta p = f_D \frac{\rho V^2}{2}\frac{L}{D} $$
 
@@ -129,6 +130,7 @@ $$ \Delta p = f_D \frac{\rho V^2}{2}\frac{L}{D} $$
 - Allows us to relate model-scale and full-scale flows
 
 ![Lewis 20 Nonblowing Inlet Model in the 9x15 foot Low Speed Wind Tunnel (LSWT).](img/Lewis_20_Nonblowing_Inlet_Model_in_the_9x15_foot_Low_Speed_Wind_Tunnel_(LSWT)_-_NARA_-_17471593.jpg)
+<!-- .element: class="img-40vh" -->
 
 --
 ## Flow Past Immersed Bodies
@@ -136,6 +138,7 @@ $$ \Delta p = f_D \frac{\rho V^2}{2}\frac{L}{D} $$
 - Calculate drag and lift forces on objects
 
 ![von Karman vortex sheet around a cylinder.](img/VortexStreet01.jpg)
+<!-- .element: class="img-50vh" -->
 
 --
 ## Turbomachinery
@@ -149,3 +152,4 @@ $$ \Delta p = f_D \frac{\rho V^2}{2}\frac{L}{D} $$
 ## Turbulence
 
 ![Wake Turbulence study at Wallops Island in 1990](img/Airplane_vortex_edit.jpg)
+<!-- .element: class="img-50vh" -->
