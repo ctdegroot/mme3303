@@ -7,7 +7,23 @@
 .reveal h2 { font-size: 1.2em; }
 .reveal h3 { font-size: 1.0em; }
 
-.reveal .katex-display { font-size: 0.5em; }
+
+.reveal p,
+.reveal ul,
+.reveal ol,
+.reveal table {
+  font-size: 0.8em;
+}
+
+.reveal .katex {
+  font-size: 0.8em !important;
+}
+.reveal .katex-display { font-size: 0.9em !important; }
+
+/* Fix vector arrow positioning */
+.katex .accent-body svg {
+  transform: translateY(-0.3em) !important;
+}
 
 /* =========================
    LIVE FOOTER
@@ -34,7 +50,7 @@
 .reveal .slides > section > section {
   display: flex !important;
   flex-direction: column;
-  justify-content: center;           /* center vertically in LIVE */
+  justify-content: center;
   height: calc(100% - 60px);
   box-sizing: border-box;
 }
@@ -45,7 +61,10 @@
 
 /* Annotation areas (LIVE) */
 .annotation-space,
-blockquote.annotation-space {
+p.annotation-space,
+blockquote.annotation-space,
+ul.annotation-space,
+ol.annotation-space {
   flex: 1 1 auto;
   border: 1px dashed #aaa;
   margin: 20px;
@@ -77,65 +96,132 @@ body:not(.instructor):not(.student) .reveal .slides section.student-only {
 /* =========================
    PRINT BASELINE
    ========================= */
-@media print { @page { margin: 0; } }
 
-.print-pdf .footer { display: none !important; }                 /* hide fixed footer */
-.print-pdf .reveal section { padding-bottom: 0 !important; }     /* reclaim space */
-
-/* In print: use normal block flow so content starts at the top */
-.print-pdf .reveal .slides > section,
-.print-pdf .reveal .slides > section > section {
-  display: block !important;
-  height: auto !important;
+@media print {
+  @page { size: A4 landscape; margin: 0; }
 }
 
-/* Default print behavior with no role: treat as STUDENT */
-.print-pdf .reveal .slides section.instructor-only { display: none !important; visibility: hidden !important; opacity: 0 !important; }
-.print-pdf .reveal .slides section.student-only    { display: block !important; visibility: visible !important;  opacity: 1 !important; }
+/* Hide footer in print */
+.print-pdf .footer { display: none !important; }
+.print-pdf .reveal section { padding-bottom: 0 !important; }
 
-/* Role-specific print toggles */
-.print-pdf.instructor .reveal .slides section.instructor-only { display: block !important; visibility: visible !important; opacity: 1 !important; }
-.print-pdf.instructor .reveal .slides section.student-only    { display: none  !important; visibility: hidden !important;  opacity: 0 !important; }
-
-.print-pdf.student    .reveal .slides section.student-only    { display: block !important; visibility: visible !important;  opacity: 1 !important; }
-.print-pdf.student    .reveal .slides section.instructor-only  { display: none  !important; visibility: hidden !important;  opacity: 0 !important; }
-
-/* =========================
-   PRINT: ANNOTATION AREAS
-   ========================= */
-/* Column width, centered, tall by default, avoid splitting across pages */
-.print-pdf .annotation-space,
-.print-pdf blockquote.annotation-space,
-.print-pdf ul.annotation-space,
-.print-pdf ol.annotation-space {
-  max-width: var(--r-main-width, 960px);
-  width: 100%;
-  margin: 20px auto;
-  min-height: 55vh;                 /* default fill; adjust below per slide */
-  break-inside: avoid; page-break-inside: avoid;
+/* Page container positioning */
+.print-pdf .pdf-page {
+  position: relative !important;
 }
 
-/* Height presets (apply to the element in Markdown: class="annotation-space annotation-h-50") */
-.print-pdf .annotation-h-40 { min-height: 40vh !important; }
-.print-pdf .annotation-h-50 { min-height: 50vh !important; }
-.print-pdf .annotation-h-60 { min-height: 60vh !important; }
-.print-pdf .annotation-h-70 { min-height: 70vh !important; }
+/* Handle slide backgrounds */
+.print-pdf .slide-background {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1 !important;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
 
-/* Always stack slide content top to bottom in print mode */
+/* Main slide content positioning */
+.print-pdf .reveal .slides section {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/*.print-pdf .footer { display: none !important; }  */               /* hide fixed footer */
+/*.print-pdf .reveal section { padding-bottom: 0 !important; } */    /* reclaim space */
+
+/* Slide sizing */
 .print-pdf .reveal .slides > section,
 .print-pdf .reveal .slides > section > section,
 .print-pdf .reveal .slides section.student-only,
 .print-pdf .reveal .slides section.instructor-only {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;  /* top align */
-  align-items: stretch !important;         /* full column width */
+  margin: 0 auto !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  
+  /* Optimized dimensions for A4 landscape */
+  height: 180mm !important;
+  width: 260mm !important;
+  max-width: 260mm !important;
+  
+  gap: 6px;
+  padding: 10mm !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  break-after: auto !important;
+  page-break-after: auto !important;
 }
 
-/* Make sure children can shrink/grow vertically (prevents odd overflows) */
-.print-pdf .reveal .slides section > * { 
-  min-width: 0; 
-  min-height: 0; 
+/* PRINT: keep all children inside the Reveal content column */
+.print-pdf .reveal .slides section > * {
+  max-width: 240mm !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 0;
+  flex: 0 0 auto !important;
+}
+
+/* ...except the annotation box on student slides, which fills leftover space */
+.print-pdf .reveal .slides section > .annotation-space,
+.print-pdf .reveal .slides section > p.annotation-space,
+.print-pdf .reveal .slides section > blockquote.annotation-space,
+.print-pdf .reveal .slides section > ul.annotation-space,
+.print-pdf .reveal .slides section > ol.annotation-space {
+  flex: 1 1 auto !important;
+  max-width: 240mm !important;
+  width: 100%;
+  margin: 4px auto;
+  min-height: 0 !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* PRINT: tighten vertical rhythm so content fits the page */
+.print-pdf .reveal h1,
+.print-pdf .reveal h2,
+.print-pdf .reveal h3,
+.print-pdf .reveal p,
+.print-pdf .reveal ul,
+.print-pdf .reveal ol {
+  margin-top: 0.3em !important;
+  margin-bottom: 0.3em !important;
+}
+
+/* IMPORTANT: prevent top/bottom child margins from adding extra page height */
+.print-pdf .reveal .slides section > :first-child { margin-top: 0 !important; }
+.print-pdf .reveal .slides section > :last-child  { margin-bottom: 0 !important; }
+
+/* Default print behavior with no role: treat as STUDENT */
+.print-pdf .reveal .slides section.instructor-only { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+.print-pdf .reveal .slides section.student-only    { display: flex !important; visibility: visible !important;  opacity: 1 !important; }
+
+/* Role-specific print toggles */
+.print-pdf.instructor .reveal .slides section.instructor-only { display: flex !important; visibility: visible !important; opacity: 1 !important; }
+.print-pdf.instructor .reveal .slides section.student-only    { display: none  !important; visibility: hidden !important;  opacity: 0 !important; }
+
+.print-pdf.student    .reveal .slides section.student-only    { display: flex !important; visibility: visible !important;  opacity: 1 !important; }
+.print-pdf.student    .reveal .slides section.instructor-only  { display: none  !important; visibility: hidden !important;  opacity: 0 !important; }
+
+/* Clean up empty elements */
+.print-pdf .reveal .slides section:empty,
+.print-pdf .reveal .slides section[style*="display: none"],
+.print-pdf .reveal .slides section p:empty {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Force aggressive cleanup for instructor role */
+.print-pdf.instructor .reveal .slides section:not(.instructor-only) {
+  display: none !important;
+  height: 0 !important;
+  page-break-before: avoid !important;
+  page-break-after: avoid !important;
 }
 
 /* =========================
