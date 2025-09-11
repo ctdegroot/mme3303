@@ -22,7 +22,7 @@
 
 /* Fix vector arrow positioning */
 .katex .accent-body svg {
-  transform: translateY(-0.3em) !important;
+  transform: translateY(-0.4em) !important;
 }
 
 /* =========================
@@ -256,6 +256,9 @@ body:not(.instructor):not(.student) .reveal .slides section.student-only {
 /* Image height utilities that work whether the class lands on <img> or its wrapping <p> */
 .print-pdf .reveal .slides section img.img-10vh,
 .print-pdf .reveal .slides section p.img-10vh > img { max-height: 10vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
+
+.print-pdf .reveal .slides section img.img-20vh,
+.print-pdf .reveal .slides section p.img-20vh > img { max-height: 20vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
 
 .print-pdf .reveal .slides section img.img-30vh,
 .print-pdf .reveal .slides section p.img-30vh > img { max-height: 30vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
