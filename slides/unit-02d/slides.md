@@ -160,6 +160,22 @@ Instructor: C.T. DeGroot, PhD, PEng
 >- $ \frac{\partial^2 v}{\partial x^2} = \frac{\rho g}{\mu} $
 <!-- .element: class="annotation-space" -->
 
+-- 
+<!-- .slide: class="instructor-only" -->
+## iClicker Question
+
+Which of the labelled terms can be eliminated?
+
+$$ \rho \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \right) = \underbrace{\rho g_x}_A - \underbrace{\frac{\partial p}{\partial x}}_B + \mu \left( \underbrace{\frac{\partial^2 u}{\partial x^2}}_C + \underbrace{\frac{\partial^2 u}{\partial y^2}}_D + \underbrace{\frac{\partial^2 u}{\partial z^2}}_E \right) $$
+
+-- 
+<!-- .slide: class="instructor-only" -->
+## iClicker Question
+
+Which of the labelled terms can be eliminated?
+
+$$ \rho \left( \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} \right) = \underbrace{\rho g_y}_A - \underbrace{\frac{\partial p}{\partial y}}_B + \mu \left( \underbrace{\frac{\partial^2 v}{\partial x^2}}_C + \underbrace{\frac{\partial^2 v}{\partial y^2}}_D + \underbrace{\frac{\partial^2 v}{\partial z^2}}_E \right) $$
+
 --
 <!-- .slide: class="student-only" -->
 ## Case II: Liquid Film Flowing Down an Infinite Vertical Plate
