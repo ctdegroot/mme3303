@@ -269,5 +269,8 @@ body:not(.instructor):not(.student) .reveal .slides section.student-only {
 .print-pdf .reveal .slides section img.img-50vh,
 .print-pdf .reveal .slides section p.img-50vh > img { max-height: 50vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
 
+.print-pdf .reveal .slides section img.img-55vh,
+.print-pdf .reveal .slides section p.img-55vh > img { max-height: 55vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
+
 .print-pdf .reveal .slides section img.img-60vh,
 .print-pdf .reveal .slides section p.img-60vh > img { max-height: 60vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
