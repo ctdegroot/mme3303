@@ -222,6 +222,7 @@ for $j$ variables that do not form a $\Pi$ product. If no luck, reduce $j$ by on
 >- Step 4: Select $j$ scaling parameters that do not form a $\Pi$ product. Try to choose parameters that are general since they will appear in all of the $\Pi$ groups.
 >- Could choose any of the last 3 from Step 3.
 >- Let's choose $w$, $\rho$, $V$.
+>- Step 5: Add one additional variable to the $j$ repeating variables and form a power product. Algebraically find the exponents that make the product dimensionless. Try to arrange for your output variables to be in the numerator, so that plots will look better. Do this sequentially, adding one new variable each time and you will find all $n-j=k$ desired $\Pi$ products.
 <!-- .element: class="annotation-space" -->
 
 --
@@ -234,7 +235,6 @@ for $j$ variables that do not form a $\Pi$ product. If no luck, reduce $j$ by on
 <!-- .slide: class="instructor-only" -->
 ## Example 1
 
->- Step 5: Add one additional variable to the $j$ repeating variables and form a power product. Algebraically find the exponents that make the product dimensionless. Try to arrange for your output variables to be in the numerator, so that plots will look better. Do this sequentially, adding one new variable each time and you will find all $n-j=k$ desired $\Pi$ products.
 >- We will have 3 $\Pi$ produces $k=n-j=6-3=3$.
 >- Let's add $F_D$ to form $\Pi_1$.
 >- $\Pi_1 = w^a \rho^b V^c F_d$
@@ -301,8 +301,7 @@ for $j$ variables that do not form a $\Pi$ product. If no luck, reduce $j$ by on
 <!-- Section 07: Example 2-->
 ## Example 2
 
-In forced convection, the heat transfer coefficient $h$ is a function of fluid thermal conductivity $k$, fluid density $\rho$, fluid viscosity $\mu$, fluid specific heat $c_p$, fluid
-velocity $V$ and body length $L$. Find the appropriate dimensionless relationship using ($k$, $p$, $c_p$, $L$) as repeating variables. Note: Heat transfer coefficient has units of W/(m$^2\cdot$K), thermal conductivity has units of W/(m$\cdot$K) and specific heat has units of J/(kg$\cdot$K).
+In forced convection, the heat transfer coefficient $h$ is a function of fluid thermal conductivity $k$, fluid density $\rho$, fluid viscosity $\mu$, fluid specific heat $c_p$, fluid velocity $V$ and body length $L$. Find the appropriate dimensionless relationship using ($k$, $\rho$, $c_p$, $L$) as repeating variables. Note: Heat transfer coefficient has units of W/(m$^2\cdot$K), thermal conductivity has units of W/(m$\cdot$K) and specific heat has units of J/(kg$\cdot$K).
 
 --
 <!-- .slide: class="student-only" -->
@@ -337,7 +336,7 @@ velocity $V$ and body length $L$. Find the appropriate dimensionless relationshi
 ## Example 2
 
 >- Step 3: j=4 (there are 4 dimensions and scaling parameters are given)
->- Step 4: Scaling parameters are given: ($k$, $p$, $c_p$, $L$)
+>- Step 4: Scaling parameters are given: ($k$, $\rho$, $c_p$, $L$)
 >- Step 5: $k = n-j = 7-4 = 3$. There are 3 $\Pi$ groups.
 <!-- .element: class="annotation-space" -->
 
