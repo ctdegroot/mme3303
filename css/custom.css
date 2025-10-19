@@ -21,8 +21,40 @@
 .reveal .katex-display { font-size: 0.9em !important; }
 
 /* Fix vector arrow positioning */
-.katex .accent-body svg {
+.katex .accent-vec .accent-body svg {
   transform: translateY(-0.4em) !important;
+}
+
+/* Constrain sqrt container to prevent overflow */
+.katex .mord.sqrt {
+  max-width: fit-content !important;
+  overflow: hidden !important;
+}
+
+/* Sqrt rendering in print mode with proper overline */
+.print-pdf .katex .mord.sqrt {
+  position: relative;
+  display: inline-block;
+  padding-left: 0.55em;
+}
+
+.print-pdf .katex .mord.sqrt::before {
+  content: "√";
+  position: absolute;
+  left: 0;
+  font-size: 1.4em;
+  line-height: 0.7;
+  top: 0.05em;
+}
+
+.print-pdf .katex .mord.sqrt::after {
+  content: "";
+  position: absolute;
+  left: 0.5em;
+  right: 0;
+  top: 0;
+  border-top: 1.5px solid currentColor;
+  height: 0;
 }
 
 /* =========================
@@ -207,9 +239,19 @@ body:not(.instructor):not(.student) .reveal .slides section.student-only {
 .print-pdf.student    .reveal .slides section.instructor-only  { display: none  !important; visibility: hidden !important;  opacity: 0 !important; }
 
 /* Clean up empty elements */
+/*
 .print-pdf .reveal .slides section:empty,
 .print-pdf .reveal .slides section[style*="display: none"],
 .print-pdf .reveal .slides section p:empty {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+*/
+
+.print-pdf .reveal .slides section:empty,
+.print-pdf .reveal .slides section[style*="display: none"] {
   display: none !important;
   height: 0 !important;
   margin: 0 !important;
@@ -259,6 +301,9 @@ body:not(.instructor):not(.student) .reveal .slides section.student-only {
 
 .print-pdf .reveal .slides section img.img-20vh,
 .print-pdf .reveal .slides section p.img-20vh > img { max-height: 20vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
+
+.print-pdf .reveal .slides section img.img-25vh,
+.print-pdf .reveal .slides section p.img-25vh > img { max-height: 25vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
 
 .print-pdf .reveal .slides section img.img-30vh,
 .print-pdf .reveal .slides section p.img-30vh > img { max-height: 30vh !important; height:auto !important; width:100% !important; object-fit:contain !important; }
