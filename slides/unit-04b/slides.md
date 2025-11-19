@@ -269,7 +269,7 @@ A 2.2 cm outer diameter pipe is to span across the river at a 30 m wide section 
 
 A spherical shaped rock piece ($\rho$ = 2300 kg/m$^3$) of diameter 2 cm is dropped into a water pond. Determine the terminal velocity of the rock (hint: terminal velocity is the velocity of a falling object when all forces acting on the object are balanced). What would be the terminal velocity of the spherical rock if it has a diameter of 0.1 mm diameter? Assume density and viscosity of water to be 1000 kg/m$^3$ and 1.12 $\times$ 10$^{-3}$ m$^2$/s, respectively.
 
-<img src="img/whi58319_0716a.png" class="img-30vh" />
+<img src="img/whi58319_0716b.png" class="img-30vh" />
 
 --
 <!-- .slide: class="student-only" -->
