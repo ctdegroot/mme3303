@@ -454,3 +454,24 @@ Aerial advertising is a common technique where a small airplane flies the advert
 >- Setting equal:
 >- $\rho U^2 \theta = \int_0^\delta \rho u(U - u) \, dy \rightarrow \boxed{\theta = \int_0^\delta \frac{u}{U}\left(1 - \frac{u}{U}\right) dy}$
 <!-- .element: class="annotation-space" -->
+
+---
+<!-- Section 07: iClicker Problems-->
+<!-- .slide: class="instructor-only" -->
+## iClicker Question
+
+- Air at 20 m/s flows over a flat plate that is 2 m long. At some location along the plate, the boundary layer transitions from laminar to turbulent. Immediately after transition, compared to immediately before transition, how do the boundary layer thickness ($\delta$) and skin friction coefficient ($c_f$) change?
+
+A) $\delta$ increases, $c_f$ increases  
+B) $\delta$ increases, $c_f$ decreases  
+C) $\delta$ decreases, $c_f$ increases  
+D) $\delta$ decreases, $c_f$ decreases
+
+--
+<!-- .slide: class="instructor-only" -->
+## iClicker Question
+
+**Answer: A**
+
+- **Boundary layer thickness ($\delta$):** Turbulent boundary layers grow faster than laminar ones. For laminar: $\delta \propto x^{1/2}$, but for turbulent: $\delta \propto  x^{6/7}$.
+- **Skin friction coefficient ($c_f$):** For laminar flow: $c_f = 0.664/Re_x^{1/2}$, but for turbulent: $c_f = 0.026/Re_x^{1/7}$. At the transition Reynolds number ($Re ≈ 5×10^5$), the turbulent $c_f$ is higher than the laminar value because turbulent boundary layers have steeper velocity gradients at the wall
